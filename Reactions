@@ -1,0 +1,111 @@
+<html><head></head><body>
+        <canvas  onclick="myFunction(event)" id="myCanvas" width="800" height="510" style="border:1px solid #000000;" ></canvas>
+        <br>
+        <button onclick="location.reload()">Restart</button>
+    
+    
+        <script>
+        
+        //Image var
+        var imageObj2 = new Image();
+        
+        //background
+         var imageObj = new Image();
+
+      imageObj.onload = function() {
+        ctx.drawImage(imageObj, 0,35);
+      };
+      imageObj.src = 'https://ak9.picdn.net/shutterstock/videos/12914339/thumb/4.jpg?i10c=img.resize(height:160)';
+        
+        
+        
+        
+        
+        
+        
+        
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            var score=0;
+            var lives=5;
+            var randx=200;
+            var randy=300;
+            ctx.textAlign="center";
+            ctx.font="30px Times New Roman";
+            ctx.fillText("Lives: "+lives, 60, 30);
+            ctx.fillText("Score: "+score, 740, 30);
+            
+            ctx.fillText("Shooting star", 410,30);
+            //SHAPE AS Image 
+                  imageObj.onload = function() {
+        ctx.drawImage(imageObj, 0,35);
+      };
+      imageObj.src = 'https://ak9.picdn.net/shutterstock/videos/12914339/thumb/4.jpg?i10c=img.resize(height:160)';
+        
+        
+            
+          imageObj2.onload = function() {
+        ctx.drawImage(imageObj2, randx, randy);
+      };
+      imageObj2.src = "https://cdn1.iconfinder.com/data/icons/flat-christmas-icons-1/75/_shooting_star-128.png";
+      
+
+            function myFunction(event){
+                var xpos=event.clientX;
+                var ypos=event.clientY;
+                if (xpos>=randx && xpos<=randx+100 && ypos>=randy && ypos<=randy+100){
+                    ctx.clearRect(0, 0, 1000, 1000);
+                    score++;
+                    ctx.fillText("Score: "+score, 740, 30);
+                    ctx.fillText("Lives: "+lives, 60, 30);
+                    
+                    ctx.fillText("Shooting star", 410,30);
+                    randx=Math.random()*600;
+                    randy=Math.random()*400;
+                    
+                          imageObj.onload = function() {
+        ctx.drawImage(imageObj, 0,35);
+      };
+      imageObj.src = 'https://ak9.picdn.net/shutterstock/videos/12914339/thumb/4.jpg?i10c=img.resize(height:160)';
+        
+        
+                   imageObj2.onload = function() {
+                       
+                       
+        ctx.drawImage(imageObj2, randx, randy);
+      };
+      imageObj2.src = "https://cdn1.iconfinder.com/data/icons/flat-christmas-icons-1/75/_shooting_star-128.png";
+      
+                } else {
+                    ctx.clearRect(0, 0, 1000, 1000);
+                    lives--;
+                    ctx.fillText("Score: "+score, 740, 30);
+                    ctx.fillText("Lives: "+lives, 60, 30);
+                    
+                      ctx.fillText("Shooting star", 410,30);
+                    randx=Math.random()*600;
+                    randy=Math.random()*400;
+                          imageObj.onload = function() {
+        ctx.drawImage(imageObj, 0,35);
+      };
+      imageObj.src = 'https://ak9.picdn.net/shutterstock/videos/12914339/thumb/4.jpg?i10c=img.resize(height:160)';
+        
+        
+                    imageObj2.onload = function() {
+        ctx.drawImage(imageObj2, randx, randy);
+      };
+      imageObj2.src = "https://cdn1.iconfinder.com/data/icons/flat-christmas-icons-1/75/_shooting_star-128.png";
+                    if (lives==0){
+                        alert("Game Over");
+                        location.reload();
+                    }
+                }
+                if (score==25){
+                    alert("Your a AMERICAN STAR");
+                    location.reload();
+                }
+            }
+        </script>
+    
+</body></html>
+<h3>TO GO BACK CLICK HERE --> <a href="https://vinayakpatel1.github.io/webdev1718aboutme/Clickergame.html">HERE</a> </h3>
